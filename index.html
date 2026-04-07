@@ -18,6 +18,26 @@ header {
     padding: 20px;
 }
 
+header p {
+    max-width: 700px;
+    margin: 10px auto;
+    line-height: 1.5;
+}
+
+.contact {
+    margin-top: 10px;
+}
+
+.email-btn {
+    background: green;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+
 .container {
     padding: 20px;
 }
@@ -83,7 +103,6 @@ button:hover {
     margin-top:5%;
 }
 
-/* NAV BUTTONS */
 .navBtn {
     position:absolute;
     top:50%;
@@ -92,7 +111,6 @@ button:hover {
     color:white;
     cursor:pointer;
     padding:20px;
-    user-select:none;
 }
 
 #prevBtn { left:10px; }
@@ -107,19 +125,31 @@ button:hover {
     cursor:pointer;
 }
 </style>
-
 </head>
 
 <body>
 
 <header>
     <h1>Sonwa Wood Creations</h1>
-    <p>Handcrafted Wooden Furniture & Custom Designs</p>
+
+    <p>
+    At Sonwa Wood Creations, we specialise in high-quality handcrafted wooden furniture and functional home solutions. 
+    Every item is carefully designed and built by hand, ensuring attention to detail, durability, and a unique finish in every piece. 
+    Our products are created to combine practicality, mobility, and modern design for everyday living.
+    </p>
+
+    <div class="contact">
+        📞 Contact: <strong>079 833 2310</strong><br>
+
+        <a href="mailto:youremail@example.com?subject=Product%20Enquiry%20-%20Sonwa%20Wood%20Creations" class="email-btn">
+            📧 Email Us
+        </a>
+    </div>
+
 </header>
 
 <div class="container">
 
-    <!-- HOME OFFICE -->
     <h2>Home / Office</h2>
     <div class="gallery">
 
@@ -160,7 +190,6 @@ button:hover {
 
     </div>
 
-    <!-- BATHROOM -->
     <h2>Bathroom</h2>
     <div class="gallery">
         <div class="card">
@@ -171,7 +200,6 @@ button:hover {
         </div>
     </div>
 
-    <!-- KITCHEN -->
     <h2>Kitchen</h2>
     <div class="gallery">
 
@@ -237,7 +265,6 @@ function prevImage() {
     document.getElementById("modalImg").src = images[currentIndex];
 }
 
-/* KEYBOARD SUPPORT */
 document.addEventListener("keydown", function(e) {
     if(document.getElementById("imageModal").style.display === "block") {
         if(e.key === "ArrowRight") nextImage();
@@ -246,7 +273,6 @@ document.addEventListener("keydown", function(e) {
     }
 });
 
-/* WHATSAPP */
 function askWhatsApp(product, price) {
     let message = "Hi, I'm interested in: " + product + " (R" + price + ")";
     let url = "https://wa.me/27798332310?text=" + encodeURIComponent(message);
