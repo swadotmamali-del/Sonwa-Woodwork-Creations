@@ -20,45 +20,30 @@ header {
 
 .container {
     padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
 }
 
-.product {
+.card {
     background: white;
-    margin-bottom: 25px;
-    padding: 20px;
     border-radius: 10px;
+    padding: 15px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
 }
 
-.product img {
+.card img {
     width: 100%;
-    max-width: 400px;
+    height: 200px;
+    object-fit: cover;
     border-radius: 8px;
-    margin-bottom: 15px;
-}
-
-h2 {
-    color: #333;
 }
 
 .price {
     color: green;
     font-weight: bold;
-    font-size: 18px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
     margin-top: 10px;
-}
-
-table, th, td {
-    border: 1px solid #ddd;
-}
-
-th, td {
-    padding: 8px;
 }
 
 footer {
@@ -66,123 +51,72 @@ footer {
     background: #222;
     color: white;
     padding: 15px;
+    margin-top: 20px;
 }
 </style>
-
 </head>
 
 <body>
 
 <header>
-    <h1>Sonwa Wood Creations</h1>
-    <p>Handcrafted Wooden Furniture & Custom Designs</p>
+<h1>Sonwa Wood Creations</h1>
+<p>Handcrafted Wooden Furniture & Custom Designs</p>
 </header>
 
 <div class="container">
 
-<!-- PRODUCT 1 -->
-<div class="product">
+<div class="card">
 <img src="1.1.png">
-<h2>Wooden Desk Phone Stand with Pen Holders</h2>
+<h3>Wooden Desk Phone Stand with Pen Holders</h3>
 <p class="price">R650.00</p>
-
-<p><strong>Product Description:</strong><br>
-Add a touch of functionality and style to your workspace with this handcrafted wooden desk organizer. Designed with both practicality and aesthetics in mind, this multi-purpose stand keeps your essentials neatly arranged while enhancing your desk’s natural look.</p>
-
-<p>Made from durable wood with a rich dark finish, this organizer features a sturdy phone holder and pen slots to keep your workspace clutter-free.</p>
-
-<table>
-<tr><th>Feature</th><th>Description</th></tr>
-<tr><td>Material</td><td>Solid Wood</td></tr>
-<tr><td>Colour</td><td>Dark Wood Finish</td></tr>
-<tr><td>Type</td><td>Desk Organizer / Phone Stand</td></tr>
-<tr><td>Mount Type</td><td>Freestanding</td></tr>
-<tr><td>Compartments</td><td>Phone holder + 2 pen slots</td></tr>
-</table>
-
-<p><strong>What’s in the box:</strong><br>
-1 x Wooden Desk Organizer with Phone Stand</p>
 </div>
 
-
-<!-- PRODUCT 2 -->
-<div class="product">
+<div class="card">
 <img src="1.2.png">
-<h2>Wooden Desk with Monitor Stand</h2>
+<h3>Wooden Desk with Monitor Stand & USB</h3>
 <p class="price">R2500.00</p>
-<p>Modern mobile desk with monitor mount, USB power outlet, and wheels. Ideal for office, gaming, and study setups.</p>
 </div>
 
-
-<!-- PRODUCT 3 -->
-<div class="product">
-<h2>Mobile Wooden Monitor Stand with TV Bracket & Wheels</h2>
+<div class="card">
+<img src="1.3.png">
+<h3>Mobile TV / Monitor Stand with Wheels</h3>
 <p class="price">R1150.00</p>
-
-<p>This mobile wooden monitor stand is a space-saving solution for mounting screens in home, office, or classroom environments.</p>
-
-<table>
-<tr><th>Feature</th><th>Description</th></tr>
-<tr><td>Material</td><td>Pine Wood</td></tr>
-<tr><td>Colour</td><td>Pink</td></tr>
-<tr><td>Mount Type</td><td>Freestanding</td></tr>
-<tr><td>Bracket</td><td>VESA Compatible</td></tr>
-<tr><td>Mobility</td><td>Wheels</td></tr>
-</table>
 </div>
 
-
-<!-- PRODUCT 4 -->
-<div class="product">
-<h2>Minimalist Office Desk & Monitor Stand Set</h2>
+<div class="card">
+<img src="1.4.png">
+<h3>Desk, Monitor & Book Stand</h3>
 <p class="price">R3200.00</p>
-
-<p>Modern 3-piece workstation set including desk and monitor stand. Designed for flexibility and clean workspace organisation.</p>
 </div>
 
-
-<!-- PRODUCT 5 -->
-<div class="product">
-<h2>Handcrafted Wooden Desk Organiser</h2>
+<div class="card">
+<img src="1.5.png">
+<h3>Wooden Desk Organiser (Books, Phone, Pens)</h3>
 <p class="price">R820.00</p>
-
-<p>Multi-functional organiser with phone stand, book holder, and pen storage. Keeps your workspace neat and efficient.</p>
 </div>
 
-
-<!-- PRODUCT 6 -->
-<div class="product">
-<h2>Wooden Under-Sink Storage</h2>
+<div class="card">
+<img src="2.1.png">
+<h3>Bathroom Under-Sink Storage</h3>
 <p class="price">R1950.00</p>
-
-<p>Compact under-sink cabinet with drawers and toilet roll holder. Designed to maximise bathroom space.</p>
 </div>
 
-
-<!-- PRODUCT 7 -->
-<div class="product">
-<h2>Minimalist Kitchen Rack</h2>
+<div class="card">
+<img src="3.1.png">
+<h3>Minimalist Kitchen Rack</h3>
 <p class="price">R299.00</p>
-
-<p>2-tier wooden kitchen rack for drying dishes and organising your countertop efficiently.</p>
 </div>
 
-
-<!-- PRODUCT 8 -->
-<div class="product">
-<h2>Appliance Stand (Air Fryer / Sandwich Maker)</h2>
+<div class="card">
+<img src="3.2.png">
+<h3>Appliance Stand (Air Fryer / Sandwich Maker)</h3>
 <p class="price">R549.00</p>
-
-<p>2-tier wooden stand designed to hold kitchen appliances while saving space.</p>
 </div>
 
-
-<!-- PRODUCT 9 -->
-<div class="product">
-<h2>Appliance Stand (Microwave & Sandwich Maker)</h2>
+<div class="card">
+<img src="3.3.png">
+<h3>Appliance Stand (Microwave & Sandwich Maker)</h3>
 <p class="price">R620.00</p>
-
-<p>Durable 2-tier wooden stand for organising kitchen appliances with a modern minimalist design.</p>
 </div>
 
 </div>
