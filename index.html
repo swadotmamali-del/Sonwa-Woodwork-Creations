@@ -77,10 +77,34 @@ button:hover {
     text-align:center;
 }
 
-#imageModal img {
+#modalImg {
     max-width:90%;
-    max-height:90%;
+    max-height:80%;
     margin-top:5%;
+}
+
+/* NAV BUTTONS */
+.navBtn {
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:40px;
+    color:white;
+    cursor:pointer;
+    padding:20px;
+    user-select:none;
+}
+
+#prevBtn { left:10px; }
+#nextBtn { right:10px; }
+
+.closeBtn {
+    position:absolute;
+    top:20px;
+    right:40px;
+    font-size:35px;
+    color:white;
+    cursor:pointer;
 }
 </style>
 
@@ -100,35 +124,35 @@ button:hover {
     <div class="gallery">
 
         <div class="card">
-            <img src="1.1.png" onclick="openImage(this.src)">
+            <img src="1.1.png" onclick="openImage(0)">
             <h3>Phone Stand with Pen Holders</h3>
             <p class="price">R650</p>
             <button onclick="askWhatsApp('Phone Stand with Pen Holders',650)">Ask me about this item</button>
         </div>
 
         <div class="card">
-            <img src="1.2.png" onclick="openImage(this.src)">
+            <img src="1.2.png" onclick="openImage(1)">
             <h3>Desk with Monitor Stand</h3>
             <p class="price">R2500</p>
             <button onclick="askWhatsApp('Desk with Monitor Stand',2500)">Ask me about this item</button>
         </div>
 
         <div class="card">
-            <img src="1.3.png" onclick="openImage(this.src)">
+            <img src="1.3.png" onclick="openImage(2)">
             <h3>Mobile Monitor Stand</h3>
             <p class="price">R1150</p>
             <button onclick="askWhatsApp('Mobile Monitor Stand',1150)">Ask me about this item</button>
         </div>
 
         <div class="card">
-            <img src="1.4.png" onclick="openImage(this.src)">
+            <img src="1.4.png" onclick="openImage(3)">
             <h3>Desk + Monitor + Book Stand</h3>
             <p class="price">R3200</p>
             <button onclick="askWhatsApp('Desk + Monitor + Book Stand',3200)">Ask me about this item</button>
         </div>
 
         <div class="card">
-            <img src="1.5.png" onclick="openImage(this.src)">
+            <img src="1.5.png" onclick="openImage(4)">
             <h3>Desk Organiser</h3>
             <p class="price">R820</p>
             <button onclick="askWhatsApp('Desk Organiser',820)">Ask me about this item</button>
@@ -139,14 +163,12 @@ button:hover {
     <!-- BATHROOM -->
     <h2>Bathroom</h2>
     <div class="gallery">
-
         <div class="card">
-            <img src="2.1.png" onclick="openImage(this.src)">
+            <img src="2.1.png" onclick="openImage(5)">
             <h3>Under Sink Storage</h3>
             <p class="price">R1950</p>
             <button onclick="askWhatsApp('Under Sink Storage',1950)">Ask me about this item</button>
         </div>
-
     </div>
 
     <!-- KITCHEN -->
@@ -154,22 +176,22 @@ button:hover {
     <div class="gallery">
 
         <div class="card">
-            <img src="3.1.png" onclick="openImage(this.src)">
+            <img src="3.1.png" onclick="openImage(6)">
             <h3>Kitchen Rack</h3>
             <p class="price">R299</p>
             <button onclick="askWhatsApp('Kitchen Rack',299)">Ask me about this item</button>
         </div>
 
         <div class="card">
-            <img src="3.2.png" onclick="openImage(this.src)">
-            <h3>Appliance Stand (Air Fryer)</h3>
+            <img src="3.2.png" onclick="openImage(7)">
+            <h3>Air Fryer Stand</h3>
             <p class="price">R549</p>
             <button onclick="askWhatsApp('Air Fryer Stand',549)">Ask me about this item</button>
         </div>
 
         <div class="card">
-            <img src="3.3.png" onclick="openImage(this.src)">
-            <h3>Appliance Stand (Microwave)</h3>
+            <img src="3.3.png" onclick="openImage(8)">
+            <h3>Microwave Stand</h3>
             <p class="price">R620</p>
             <button onclick="askWhatsApp('Microwave Stand',620)">Ask me about this item</button>
         </div>
@@ -179,25 +201,56 @@ button:hover {
 </div>
 
 <!-- IMAGE MODAL -->
-<div id="imageModal" onclick="closeImage()">
+<div id="imageModal">
+    <span class="closeBtn" onclick="closeImage()">&times;</span>
+    <span id="prevBtn" class="navBtn" onclick="prevImage()">❮</span>
     <img id="modalImg">
+    <span id="nextBtn" class="navBtn" onclick="nextImage()">❯</span>
 </div>
 
 <script>
-function askWhatsApp(product, price) {
-    let message = "Hi, I'm interested in: " + product + " (R" + price + ")";
-    let url = "https://wa.me/27798332310?text=" + encodeURIComponent(message);
-    window.open(url, "_blank");
-}
+let images = [
+    "1.1.png","1.2.png","1.3.png","1.4.png","1.5.png",
+    "2.1.png",
+    "3.1.png","3.2.png","3.3.png"
+];
 
-/* IMAGE ZOOM */
-function openImage(src) {
+let currentIndex = 0;
+
+function openImage(index) {
+    currentIndex = index;
     document.getElementById("imageModal").style.display = "block";
-    document.getElementById("modalImg").src = src;
+    document.getElementById("modalImg").src = images[index];
 }
 
 function closeImage() {
     document.getElementById("imageModal").style.display = "none";
+}
+
+function nextImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    document.getElementById("modalImg").src = images[currentIndex];
+}
+
+function prevImage() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    document.getElementById("modalImg").src = images[currentIndex];
+}
+
+/* KEYBOARD SUPPORT */
+document.addEventListener("keydown", function(e) {
+    if(document.getElementById("imageModal").style.display === "block") {
+        if(e.key === "ArrowRight") nextImage();
+        if(e.key === "ArrowLeft") prevImage();
+        if(e.key === "Escape") closeImage();
+    }
+});
+
+/* WHATSAPP */
+function askWhatsApp(product, price) {
+    let message = "Hi, I'm interested in: " + product + " (R" + price + ")";
+    let url = "https://wa.me/27798332310?text=" + encodeURIComponent(message);
+    window.open(url, "_blank");
 }
 </script>
 
